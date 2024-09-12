@@ -16,7 +16,33 @@ Write a mini-max search algorithm to find the optimal value of MAX Player from t
 
 ### Program:
 
+```
+import math
 
+def minimax(curDepth, nodeIndex, maxTurn, scores, targetDepth):
+    # Base case: targetDepth reached
+    if curDepth == targetDepth:
+        return scores[nodeIndex]
+    
+    if maxTurn:
+        # Maximize the value
+        return max(
+            minimax(curDepth + 1, nodeIndex * 2, False, scores, targetDepth),
+            minimax(curDepth + 1, nodeIndex * 2 + 1, False, scores, targetDepth)
+        )
+    else:
+        # Minimize the value
+        return min(
+            minimax(curDepth + 1, nodeIndex * 2, True, scores, targetDepth),
+            minimax(curDepth + 1, nodeIndex * 2 + 1, True, scores, targetDepth)
+        )
+
+# Driver code
+scores = [3, 5, 2, 9, 12, 5, 23, 20]
+treeDepth = int(math.log2(len(scores)))  # calculate depth of tree, log base 2 of the number of scores
+
+print("The optimal value is:", minimax(0, 0, True, scores, treeDepth))
+````
 
 
 
@@ -27,6 +53,7 @@ Write a mini-max search algorithm to find the optimal value of MAX Player from t
 
 
 ### Output:
+![image](https://github.com/user-attachments/assets/94591531-f69c-4753-9a06-2a07dd2f2f52)
 
 
 
