@@ -1,6 +1,6 @@
 # Ex.No: 2  Implementation of Depth First Search
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE: 17.02.2024                                                                         
+### REGISTER NUMBER : 212222060295
 ### AIM: 
 To write a python program to implement Depth first Search. 
 ### Algorithm:
@@ -13,32 +13,40 @@ To write a python program to implement Depth first Search.
 7. Stop the program.
 ### Program:
 ```
-# Using a Python dictionary to act as an adjacency list
 graph = {
-    '5' : ['3', '7'],
-    '3' : ['2', '4'],
-    '7' : ['8'],
-    '2' : [],
-    '4' : ['8'],
-    '8' : []
+  '5' : ['3','7'],
+  '3' : ['2', '4'],
+  '7' : ['8'],
+  '2' : [],
+  '4' : ['8'],
+  '8' : []
 }
-
-visited = set()  # Set to keep track of visited nodes of the graph
-
-def dfs(visited, graph, node):
+visited = set() # Set to keep track of visited nodes of graph.
+def dfs(visited, graph, node):  #function for dfs 
     if node not in visited:
-        print(node)  # Print the node
-        visited.add(node)  # Add the node to the visited set
+        print (node)
+        visited.add(node)
         for neighbour in graph[node]:
             dfs(visited, graph, neighbour)
-
 # Driver Code
-print("Following is the Depth-First Search:")
-dfs(visited, graph, '5')
+print("Following is the Depth-First Search")
+dfs(visited,graph,'5')
 ```
 
+
+
+
+
+
+
+
+
+
 ### Output:
-![image](https://github.com/user-attachments/assets/46dbd906-a00f-45da-a6c8-d3ae8effb6c9)
+![Screenshot 2024-10-03 133941](https://github.com/user-attachments/assets/c5ec8638-9c81-4431-97bb-c13d1a5084be)
+
+
+
 
 ### Result:
 Thus the depth first search order was found sucessfully.
